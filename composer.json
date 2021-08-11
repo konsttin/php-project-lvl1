@@ -1,0 +1,23 @@
+{
+    "name": "hexlet/code",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Konstantin Glebov",
+            "email": "5449277@gmail.com"
+        }
+    ],
+    "description": "hexlet php-package",
+    "license": "MIT",
+    "scripts": {
+        "test": "phpunit tests"
+    },
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
+}
