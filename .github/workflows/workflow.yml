@@ -1,0 +1,14 @@
+name: PHP CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run linter
+        run: make lint
