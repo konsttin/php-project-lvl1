@@ -23,19 +23,19 @@ function question()
 
         if ($numEven === 0) {
             $correctAnswer = 'yes';
-            } else {
+        } else {
             $correctAnswer = 'no';
-            }
+        }
 
         $answer = prompt('Question:', $num);
 
-        if($answer === $correctAnswer){
+        if ($answer === $correctAnswer) {
             line("Your answer: %s\nCorrect!", $answer);
-                    } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet\'s try again, %s", $answer, $correctAnswer, $name);
+        } else {
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
+                "Let\'s try again, %s!", $answer, $correctAnswer, $name);
             break;
         }
-        }
+    }
     line("Congratulations, %s!", $name);
-
 }
