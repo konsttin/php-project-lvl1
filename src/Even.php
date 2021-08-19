@@ -17,7 +17,7 @@ function question()
 {
     global $name;
     line('Answer "yes" if the number is even, otherwise answer "no".');
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i <= 3; $i++) {
         $num = random_int(0, 99);
         $numEven = $num % 2;
 
@@ -30,6 +30,10 @@ function question()
         $answer = prompt('Question:', $num);
 
         if ($answer === $correctAnswer) {
+            if ($i === 2) {
+                line("Congratulations, %s!", $name);
+                break;
+            }
             line("Your answer: %s\nCorrect!", $answer);
         } else {
             line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
@@ -37,5 +41,4 @@ function question()
             break;
         }
     }
-    line("Congratulations, %s!", $name);
 }
