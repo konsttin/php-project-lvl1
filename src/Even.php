@@ -31,7 +31,7 @@ function question()
 
         if ($answer === $correctAnswer) {
             if ($i === 2) {
-                line("Congratulations, %s!", $name);
+                line("Correct!\nCongratulations, %s!", $name);
                 break;
             }
             line("Your answer: %s\nCorrect!", $answer);
