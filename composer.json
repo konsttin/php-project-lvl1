@@ -7,8 +7,7 @@
         "files": [
             "src/Cli.php",
             "src/Games/Even.php",
-            "src/Games/EvenEngine.php",
-            "src/Engine/EngineGames.php"
+            "src/Games/Calc.php"
         ]
     },
     "authors": [
