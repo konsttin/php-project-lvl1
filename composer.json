@@ -7,7 +7,7 @@
         "files": [
             "src/Cli.php",
             "src/Games/Even.php",
-            "src/Games/CalcEngine.php",
+            "src/Games/EvenEngine.php",
             "src/Engine/EngineGames.php"
         ]
     },
