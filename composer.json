@@ -6,7 +6,9 @@
         },
         "files": [
             "src/Cli.php",
-            "src/Even.php"
+            "src/Games/Even.php",
+            "src/Games/CalcEngine.php",
+            "src/Engine/EngineGames.php"
         ]
     },
     "authors": [
@@ -25,7 +27,8 @@
     },
     "bin": [
         "bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-even",
+        "bin/brain-calc"
     ],
     "require-dev": {
         "roave/security-advisories": "dev-latest"
