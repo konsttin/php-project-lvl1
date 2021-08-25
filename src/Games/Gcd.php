@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Even;
+namespace Brain\Games\Gcd;
 
 use function cli\line;
 use function cli\prompt;
@@ -16,18 +16,14 @@ function greeting()
 function question()
 {
     global $name;
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    line('Find the greatest common divisor of given numbers.');
     for ($i = 0; $i <= 3; $i++) {
-        $num = random_int(0, 99);
-        $numEven = $num % 2;
+        $rand1 = random_int(0, 10);
+        $rand2 = random_int(0, 10);
+        $gcdAnswer = gmp_gcd($rand1, $rand2);
+        $correctAnswer = gmp_strval($gcdAnswer);
 
-        if ($numEven === 0) {
-            $correctAnswer = 'yes';
-        } else {
-            $correctAnswer = 'no';
-        }
-
-        $answer = prompt('Question:', $num);
+        $answer = prompt('Question:', $rand1, $rand2);
 
         if ($answer === $correctAnswer) {
             if ($i === 2) {
