@@ -23,7 +23,7 @@ function question()
         $gcdAnswer = gmp_gcd($rand1, $rand2);
         $correctAnswer = gmp_strval($gcdAnswer);
 
-        $answer = prompt('Question:', $rand1, $rand2);
+        $answer = prompt('Question:', "{$rand1 } {$rand2}");
 
         if ($answer === $correctAnswer) {
             if ($i === 2) {
