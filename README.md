@@ -1,5 +1,6 @@
 Brain Even: https://asciinema.org/connect/c9609902-d606-45b8-b5f9-21dc80422fb1\n
 Brain Calc: https://asciinema.org/a/LJ73n2isOuvKSz7KC1m6EL5Y4
+Brain Gcd: https://asciinema.org/a/3V07oCjO9q7qw8OgNRSEY2ic9
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/konsttin/php-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/konsttin/php-project-lvl1/actions)
