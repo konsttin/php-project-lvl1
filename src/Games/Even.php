@@ -27,7 +27,7 @@ function question()
             $correctAnswer = 'no';
         }
 
-        $answer = prompt('Question:', $num);
+        $answer = prompt("Question: {$num}");
 
         if ($answer === $correctAnswer) {
             if ($i === 2) {
