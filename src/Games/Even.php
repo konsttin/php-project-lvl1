@@ -37,7 +37,7 @@ function question()
             line("Your answer: %s\nCorrect!", $answer);
         } else {
             line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
-                "Let\'s try again, %s!", $answer, $correctAnswer, $name);
+                "Let's try again, %s!", $answer, $correctAnswer, $name);
             break;
         }
     }
