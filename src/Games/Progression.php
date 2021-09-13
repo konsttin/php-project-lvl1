@@ -30,7 +30,7 @@ function question()
 
         $answer = prompt('Question:', implode(' ', $array));
 
-        if (intval($answer) === intval($correctAnswer)) {
+        if ((int)$answer === (int)$correctAnswer) {
             if ($i === 2) {
                 line("Correct!\nCongratulations, %s!", $name);
                 break;

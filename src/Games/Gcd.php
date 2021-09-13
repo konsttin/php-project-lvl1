@@ -18,14 +18,23 @@ function question()
     global $name;
     line('Find the greatest common divisor of given numbers.');
     for ($i = 0; $i <= 3; $i++) {
-        $rand1 = random_int(0, 10);
-        $rand2 = random_int(0, 10);
-        $gcdAnswer = gmp_gcd($rand1, $rand2);
-        $correctAnswer = gmp_strval($gcdAnswer);
+        $rand1 = random_int(1, 20);
+        $rand2 = random_int(1, 20);
+        if ($rand1 > $rand2) {
+            $temp = $rand1;
+            $rand1 = $rand2;
+            $rand2 = $temp;
+        }
+
+        for ($ind = 1; $ind < ($rand1 + 1); $ind++) {
+            if ($rand1 % $ind === 0 && $rand2 % $ind === 0) {
+                $correctAnswer = $ind;
+            }
+        }
 
         $answer = prompt('Question:', "{$rand1 } {$rand2}");
 
-        if ($answer === $correctAnswer) {
+        if ((int)$answer === (int)$correctAnswer) {
             if ($i === 2) {
                 line("Correct!\nCongratulations, %s!", $name);
                 break;
