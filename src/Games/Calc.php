@@ -33,7 +33,7 @@ function question()
                 $correctAnswer = $rand1 * $rand2;
                 break;
         }
-        $question = $rand1 .  $randOperator  . $rand2;
+        $question = "{$rand1 } {$randOperator } {$rand2}";
 
         $answer = prompt('Question:', $question);
 
