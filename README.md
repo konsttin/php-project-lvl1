@@ -1,3 +1,4 @@
+[![Brain Even](https://asciinema.org/a/Nz5MimuLbGjIVh6g9IjgcV2Fd.svg)](https://asciinema.org/a/Nz5MimuLbGjIVh6g9IjgcV2Fd)
 Brain Even: https://asciinema.org/connect/c9609902-d606-45b8-b5f9-21dc80422fb1\n
 Brain Calc: https://asciinema.org/a/LJ73n2isOuvKSz7KC1m6EL5Y4
 Brain Gcd: https://asciinema.org/a/3V07oCjO9q7qw8OgNRSEY2ic9
