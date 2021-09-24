@@ -2,48 +2,30 @@
 
 namespace Brain\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\engine;
 
-function greeting()
+function gcd()
 {
-    global $name;
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-}
-
-function question()
-{
-    global $name;
-    line('Find the greatest common divisor of given numbers.');
-    for ($i = 0; $i <= 3; $i++) {
-        $rand1 = random_int(1, 20);
-        $rand2 = random_int(1, 20);
-        if ($rand1 > $rand2) {
-            $temp = $rand1;
-            $rand1 = $rand2;
-            $rand2 = $temp;
+    $task = 'Find the greatest common divisor of given numbers.';
+    $gameData = [];
+    for ($i = 0; $i <= 2; $i++) {
+        $randomNumber1 = random_int(1, 20);
+        $randomNumber2 = random_int(1, 20);
+        if ($randomNumber1 > $randomNumber2) {
+            $temp = $randomNumber1;
+            $randomNumber1 = $randomNumber2;
+            $randomNumber2 = $temp;
         }
 
-        for ($ind = 1; $ind < ($rand1 + 1); $ind++) {
-            if ($rand1 % $ind === 0 && $rand2 % $ind === 0) {
-                $correctAnswer = $ind;
+        for ($index = 1; $index < ($randomNumber1 + 1); $index++) {
+            if ($randomNumber1 % $index === 0 && $randomNumber2 % $index === 0) {
+                $correctAnswer = $index;
             }
         }
 
-        $answer = prompt('Question:', "{$rand1 } {$rand2}");
-
-        if ((int)$answer === (int)$correctAnswer) {
-            if ($i === 2) {
-                line("Correct!\nCongratulations, %s!", $name);
-                break;
-            }
-            line("Your answer: %s\nCorrect!", $answer);
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
-                "Let\'s try again, %s!", $answer, $correctAnswer, $name);
-            break;
-        }
+        $question = "{$randomNumber1 } {$randomNumber2}";
+        $gameData[] = ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
     }
+
+    engine($task, $gameData);
 }

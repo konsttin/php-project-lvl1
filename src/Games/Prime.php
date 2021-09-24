@@ -2,48 +2,26 @@
 
 namespace Brain\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\engine;
 
-function greeting()
+function prime()
 {
-    global $name;
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-}
-
-function question()
-{
-    global $name;
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    for ($i = 0; $i <= 3; $i++) {
-        $rand1 = random_int(2, 50);
+    $task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $gameData = [];
+    for ($i = 0; $i <= 2; $i++) {
+        $randomNumber = random_int(2, 50);
         $result = true;
-        for ($ind = 2; $ind < $rand1; $ind++) {
-            if ($rand1 % $ind == 0) {
+        for ($index = 2; $index < $randomNumber; $index++) {
+            if ($randomNumber % $index == 0) {
                 $result = false;
                 break;
             }
         }
-        if ($result === true) {
-            $correctAnswer = 'yes';
-        } else {
-            $correctAnswer = 'no';
-        }
+        $correctAnswer = $result ? 'yes' : 'no';
 
-        $answer = prompt('Question:', $rand1);
-
-        if ($answer === $correctAnswer) {
-            if ($i === 2) {
-                line("Correct!\nCongratulations, %s!", $name);
-                break;
-            }
-            line("Your answer: %s\nCorrect!", $answer);
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
-                "Let\'s try again, %s!", $answer, $correctAnswer, $name);
-            break;
-        }
+        $question = "{$randomNumber}";
+        $gameData[] = ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
     }
+
+    engine($task, $gameData);
 }

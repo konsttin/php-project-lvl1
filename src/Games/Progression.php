@@ -2,44 +2,26 @@
 
 namespace Brain\Games\Progression;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\engine;
 
-function greeting()
+function progression()
 {
-    global $name;
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-}
-
-function question()
-{
-    global $name;
-    line('What number is missing in the progression?');
-    for ($i = 0; $i <= 3; $i++) {
-        $rand1 = random_int(0, 50);
-        $rand2 = random_int(0, 10);
-        $array[] = $rand1;
-        for ($ind = 1; $ind <= 10; $ind++) {
-            $array[$ind] = $array[$ind - 1] + $rand2;
+    $task = 'What number is missing in the progression?';
+    $gameData = [];
+    for ($i = 0; $i <= 2; $i++) {
+        $randomNumber1 = random_int(1, 50);
+        $randomNumber2 = random_int(1, 10);
+        $array[] = $randomNumber1;
+        for ($index = 1; $index < 10; $index++) {
+            $array[$index] = $array[$index - 1] + $randomNumber2;
         }
-        $rand3 = random_int(0, 9);
-        $correctAnswer = $array[$rand3];
-        $array[$rand3] = '..';
+        $randomNumber3 = random_int(0, 9);
+        $correctAnswer = $array[$randomNumber3];
+        $array[$randomNumber3] = '..';
 
-        $answer = prompt('Question:', implode(' ', $array));
-
-        if ((int)$answer === (int)$correctAnswer) {
-            if ($i === 2) {
-                line("Correct!\nCongratulations, %s!", $name);
-                break;
-            }
-            line("Your answer: %s\nCorrect!", $answer);
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
-                "Let\'s try again, %s!", $answer, $correctAnswer, $name);
-            break;
-        }
+        $question = implode(' ', $array);
+        $gameData[] = ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
     }
+
+    engine($task, $gameData);
 }

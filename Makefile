@@ -24,3 +24,6 @@ brain-progression:
 
 brain-prime:
 	./bin/brain-prime
+
+brain-game:
+	./bin/brain-gameengine

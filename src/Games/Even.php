@@ -2,43 +2,22 @@
 
 namespace Brain\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\engine;
 
-function greeting()
+function isEven(int $number): bool
 {
-    global $name;
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    return ($number % 2) === 0;
 }
 
-function question()
+function even()
 {
-    global $name;
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    for ($i = 0; $i <= 3; $i++) {
-        $num = random_int(0, 99);
-        $numEven = $num % 2;
-
-        if ($numEven === 0) {
-            $correctAnswer = 'yes';
-        } else {
-            $correctAnswer = 'no';
-        }
-
-        $answer = prompt("Question: {$num}");
-
-        if ($answer === $correctAnswer) {
-            if ($i === 2) {
-                line("Correct!\nCongratulations, %s!", $name);
-                break;
-            }
-            line("Your answer: %s\nCorrect!", $answer);
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.\n" .
-                "Let's try again, %s!", $answer, $correctAnswer, $name);
-            break;
-        }
+    $task = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $gameData = [];
+    for ($i = 0; $i <= 2; $i++) {
+        $randomNumber = random_int(1, 100);
+        $correctAnswer = isEven($randomNumber) ? 'yes' : 'no';
+        $gameData[] = ['question' => $randomNumber, 'correctAnswer' => $correctAnswer];
     }
+
+    engine($task, $gameData);
 }
