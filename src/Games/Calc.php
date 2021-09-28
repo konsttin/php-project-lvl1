@@ -18,7 +18,6 @@ function findResult(string $operator, int $number1, int $number2): int
         //default:
             //throw new Exception('Error');
     }
-    return 'Error';
 }
 
 function calc(): void
