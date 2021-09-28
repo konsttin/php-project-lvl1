@@ -6,7 +6,7 @@ use PHPUnit\Util\Exception;
 
 use function Brain\Engine\engine;
 
-function findResult($operator, $number1, $number2): int
+function findResult(string $operator, int $number1, int $number2): int
 {
     switch ($operator) {
         case '+':
@@ -20,7 +20,7 @@ function findResult($operator, $number1, $number2): int
     }
 }
 
-function calc()
+function calc(): void
 {
     $task = 'What is the result of the expression?';
     $gameData = [];

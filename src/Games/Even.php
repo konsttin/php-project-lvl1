@@ -9,7 +9,7 @@ function isEven(int $number): bool
     return ($number % 2) === 0;
 }
 
-function even()
+function even(): void
 {
     $task = 'Answer "yes" if the number is even, otherwise answer "no".';
     $gameData = [];

@@ -5,7 +5,7 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function engine($task, array $gameData = [])
+function engine(string $task, array $gameData = []): void
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -13,7 +13,6 @@ function engine($task, array $gameData = [])
     line("{$task}");
     $count = 0;
     foreach ($gameData as $round) {
-        //var_dump($gameData);
         $question = $round['question'];
         $correctAnswer = $round['correctAnswer'];
 

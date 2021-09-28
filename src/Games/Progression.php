@@ -9,14 +9,14 @@ function generateProgression(): array
     $startProgression = random_int(1, 50);
     $stepProgression = random_int(1, 10);
     $arrayProgression = [];
-    for ($x = $startProgression; count($arrayProgression) < 10; $x++) {
+    for ($x = $startProgression, $loopsMax = count($arrayProgression); $loopsMax < 10; $x++) {
         $x += $stepProgression;
         $arrayProgression[] = $x;
     }
     return $arrayProgression;
 }
 
-function progression()
+function progression(): void
 {
     $task = 'What number is missing in the progression?';
     $gameData = [];
