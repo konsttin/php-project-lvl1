@@ -25,8 +25,8 @@ function calc()
             case '*':
                 $correctAnswer = $randomNumber1 * $randomNumber2;
                 break;
-            default:
-                throw new Exception('Неизвестный оператор');
+            //default:
+                //throw new Exception('Неизвестный оператор');
         }
         $question = "{$randomNumber1 } {$randomOperator } {$randomNumber2}";
         $gameData[] = ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
