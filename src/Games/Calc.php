@@ -15,9 +15,10 @@ function findResult(string $operator, int $number1, int $number2): int
             return $number1 - $number2;
         case '*':
             return $number1 * $number2;
-        default:
-            throw new Exception('Error');
+        //default:
+            //throw new Exception('Error');
     }
+    return 'Error';
 }
 
 function calc(): void
