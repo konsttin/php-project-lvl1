@@ -6,6 +6,20 @@ use PHPUnit\Util\Exception;
 
 use function Brain\Engine\engine;
 
+function findResult($operator, $number1, $number2): int
+{
+    switch ($operator) {
+        case '+':
+            return $number1 + $number2;
+        case '-':
+            return $number1 - $number2;
+        case '*':
+            return $number1 * $number2;
+        default:
+            throw new Exception('Error');
+    }
+}
+
 function calc()
 {
     $task = 'What is the result of the expression?';
@@ -15,19 +29,7 @@ function calc()
         $randomNumber2 = random_int(0, 10);
         $operator = ['*', '+', '-'];
         $randomOperator = $operator[random_int(0, 2)];
-        switch ($randomOperator) {
-            case '+':
-                $correctAnswer = $randomNumber1 + $randomNumber2;
-                break;
-            case '-':
-                $correctAnswer = $randomNumber1 - $randomNumber2;
-                break;
-            case '*':
-                $correctAnswer = $randomNumber1 * $randomNumber2;
-                break;
-            //default:
-                //throw new Exception('Неизвестный оператор');
-        }
+        $correctAnswer = findResult($randomOperator, $randomNumber1, $randomNumber2);
         $question = "{$randomNumber1 } {$randomOperator } {$randomNumber2}";
         $gameData[] = ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
     }
