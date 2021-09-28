@@ -6,7 +6,7 @@ use PHPUnit\Util\Exception;
 
 use function Brain\Engine\engine;
 
-function findResult(string $operator, int $number1, int $number2): string
+function findResult(string $operator, int $number1, int $number2): int
 {
     switch ($operator) {
         case '+':
@@ -15,10 +15,9 @@ function findResult(string $operator, int $number1, int $number2): string
             return $number1 - $number2;
         case '*':
             return $number1 * $number2;
-        //default:
-            //throw new Exception('Error');
+        default:
+            throw new Exception('Error');
     }
-    return 'Error';
 }
 
 function calc(): void
