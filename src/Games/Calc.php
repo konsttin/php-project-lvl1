@@ -16,7 +16,7 @@ function findResult(string $operator, int $number1, int $number2): int
         case '*':
             return $number1 * $number2;
         default:
-            throw new Exception('Error');
+            throw new \Exception('Error');
     }
 }
 
