@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Engine\engine;
+use function Brain\Engine\playGame;
 
 function isPrime(int $number): bool
 {
@@ -16,11 +16,11 @@ function isPrime(int $number): bool
     return $result;
 }
 
-function prime(): void
+function playPrime(): void
 {
     $task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $gameData = [];
-    for ($i = 0; $i <= 2; $i++) {
+    for ($i = 0; $i <= ROUNDCOUNT; $i++) {
         $randomNumber = random_int(2, 50);
         $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
 
@@ -28,5 +28,5 @@ function prime(): void
         $gameData[] = ['question' => $question, 'correctAnswer' => $correctAnswer];
     }
 
-    engine($task, $gameData);
+    playGame($task, $gameData);
 }

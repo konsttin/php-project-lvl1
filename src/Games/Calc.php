@@ -4,7 +4,7 @@ namespace Brain\Games\Calc;
 
 use PHPUnit\Util\Exception;
 
-use function Brain\Engine\engine;
+use function Brain\Engine\playGame;
 
 function findResult(string $operator, int $number1, int $number2): int
 {
@@ -20,11 +20,11 @@ function findResult(string $operator, int $number1, int $number2): int
     }
 }
 
-function calc(): void
+function playCalc(): void
 {
     $task = 'What is the result of the expression?';
     $gameData = [];
-    for ($i = 0; $i <= 2; $i++) {
+    for ($i = 0; $i <= ROUNDCOUNT; $i++) {
         $randomNumber1 = random_int(0, 10);
         $randomNumber2 = random_int(0, 10);
         $operator = ['*', '+', '-'];
@@ -34,5 +34,5 @@ function calc(): void
         $gameData[] = ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
     }
 
-    engine($task, $gameData);
+    playGame($task, $gameData);
 }
