@@ -4,25 +4,26 @@ namespace Brain\Games\Progression;
 
 use function Brain\Engine\playGame;
 
-define("MAXELEMENTSCOUNT", 10);
+use const Brain\Engine\ROUNDS_COUNT;
 
 function generateProgression(): array
 {
     $startProgression = random_int(1, 50);
     $stepProgression = random_int(1, 10);
-    $arrayProgression = [];
-    for ($x = $startProgression; count($arrayProgression) < MAXELEMENTSCOUNT; $x++) {
+    $maxElementsCount =  10;
+    $progression = [];
+    for ($x = $startProgression; count($progression) < $maxElementsCount; $x++) {
         $x += $stepProgression;
-        $arrayProgression[] = $x;
+        $progression[] = $x;
     }
-    return $arrayProgression;
+    return $progression;
 }
 
 function playProgression(): void
 {
     $task = 'What number is missing in the progression?';
     $gameData = [];
-    for ($i = 0; $i <= ROUNDCOUNT; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $progression = generateProgression();
         $randomNumberQuestion = random_int(0, 9);
         $correctAnswer = $progression[$randomNumberQuestion];

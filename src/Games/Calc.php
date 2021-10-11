@@ -6,6 +6,8 @@ use PHPUnit\Util\Exception;
 
 use function Brain\Engine\playGame;
 
+use const Brain\Engine\ROUNDS_COUNT;
+
 function findResult(string $operator, int $number1, int $number2): int
 {
     switch ($operator) {
@@ -24,7 +26,7 @@ function playCalc(): void
 {
     $task = 'What is the result of the expression?';
     $gameData = [];
-    for ($i = 0; $i <= ROUNDCOUNT; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $randomNumber1 = random_int(0, 10);
         $randomNumber2 = random_int(0, 10);
         $operator = ['*', '+', '-'];

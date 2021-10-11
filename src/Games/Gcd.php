@@ -4,6 +4,8 @@ namespace Brain\Games\Gcd;
 
 use function Brain\Engine\playGame;
 
+use const Brain\Engine\ROUNDS_COUNT;
+
 function findGcd(int $number1, int $number2): int
 {
     $result = 1;
@@ -19,7 +21,7 @@ function playGcd(): void
 {
     $task = 'Find the greatest common divisor of given numbers.';
     $gameData = [];
-    for ($i = 0; $i <= ROUNDCOUNT; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $randomNumber1 = random_int(1, 30);
         $randomNumber2 = random_int(1, 30);
         if ($randomNumber1 > $randomNumber2) {

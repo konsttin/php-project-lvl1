@@ -5,9 +5,9 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-define("ROUNDCOUNT", 2);
+const ROUNDS_COUNT = 3;
 
-function playGame(string $task, array $gameData = []): void
+function playGame(string $task, array $gameData): void
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
